@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const sequelize = require('../config/config');
 
 class Comment extends Model {}
 
@@ -26,6 +26,13 @@ Comment.init(
           key: 'id',
         },
       },
+      userId: {
+        type: DataTypes.INTEGER,
+        referneces: {
+          model: 'user',
+          key: 'id'
+        }
+      }
     },
     {
       sequelize,
